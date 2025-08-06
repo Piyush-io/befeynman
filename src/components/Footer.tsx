@@ -1,19 +1,36 @@
-import Image from "next/image";
-
 export default function Footer() {
   return (
     <footer>
-      <div className="footer-logo">BE FEYNMAN</div>
-      <div className="footer-bottom">
-        <div className="footer-image-glow"></div>
-        <Image
-          src="/4.png"
-          alt="The Feynman Method"
-          width={900}
-          height={600}
-          className="footer-image"
-          priority={false}
-        />
+      <div className="footer-layout">
+        <div className="footer-top-section">
+          <div className="footer-contact-left">
+            <div className="footer-contact-item">GET IN TOUCH</div>
+          </div>
+          <div className="footer-contact-center">
+            <div className="footer-email">mittalpiyush2004@icloud.com</div>
+          </div>
+          <div className="footer-contact-right">
+            <div className="footer-contact-item">START LEARNING</div>
+          </div>
+        </div>
+
+        <div className="footer-middle-section">
+          <div className="footer-info-left">
+            <div className="footer-copyright">© 2025 BE FEYNMAN</div>
+          </div>
+          <div className="footer-center-text">
+            <div className="footer-description">
+              LEARNING PLATFORM FOR MASTERING CONCEPTS
+            </div>
+          </div>
+          <div className="footer-info-right">
+            <div className="footer-location">WORLDWIDE</div>
+          </div>
+        </div>
+
+        <div className="footer-brand-section">
+          <div className="footer-brand-text">BE FEYNMAN</div>
+        </div>
       </div>
     </footer>
   );

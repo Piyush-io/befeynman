@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.cdnfonts.com/css/geist-sans");
 
 :root {
-    --bg-color: #0b0b0b;
+    --bg-color: #070707;
     --text-primary: #ffffff;
     --text-secondary: #8c8c8c;
     --subdued-meta-color: rgba(140, 140, 140, 0.62);
@@ -44,13 +45,21 @@ a {
     width: 100%;
 }
 
-header,
-footer {
+header {
     width: 100%;
     max-width: var(--max-width);
     padding: 30px var(--padding-mobile);
     display: flex;
     justify-content: center; /* center content */
+    align-items: center;
+    font-size: 15px;
+}
+
+footer {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    display: flex;
+    justify-content: center;
     align-items: center;
     font-size: 15px;
 }
@@ -66,7 +75,7 @@ footer {
 /* Removed the header nav and centered the logo */
 
 .hero {
-    background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80");
+    background-image: url("https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=1493&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     background-size: cover;
     background-position: center 60%; /* shift image downward */
     position: relative;
@@ -167,141 +176,118 @@ main {
 }
 
 footer {
-    flex-direction: column;
-    gap: 60px;
+    width: 100vw;
+    padding: 0;
     margin-top: calc(var(--section-y) * 1.5);
-    padding: 120px var(--padding-mobile) 100px;
+    margin-left: calc(-50vw + 50%);
     position: relative;
     overflow: hidden;
+    background-color: #070707;
 }
 
-footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px;
-    height: 80px;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
+.footer-layout {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 60px var(--padding-mobile);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }
 
-.footer-logo {
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 0.1em;
+.footer-top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.footer-contact-left,
+.footer-contact-right {
+    font-size: 12px;
+    color: #666666;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
-    margin-bottom: 40px;
+    letter-spacing: 0.1em;
 }
 
-/* CTA wrapper to keep button equidistant from sections */
-.cta-wrapper {
+.footer-contact-center {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-email {
+    font-size: 32px;
+    font-family: "Geist Sans", "Inter", system-ui, sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-top: -6px;
+}
+
+.footer-middle-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-info-left,
+.footer-info-right {
+    flex: 1;
+    font-size: 11px;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
+
+.footer-info-left {
+    text-align: left;
+}
+
+.footer-info-right {
+    text-align: right;
+}
+
+.footer-center-text {
+    flex: 1;
+    text-align: center;
     display: flex;
     justify-content: center;
-    margin-top: calc(var(--cta-spacing) - 12px);
-    margin-bottom: calc(var(--cta-spacing) - 12px);
+    align-items: center;
 }
 
-/* CTA styled to echo the header logo typography but as a tappable target */
-.cta-button-logo {
-    color: var(--text-primary);
-    text-decoration: none; /* keep it minimal like the logo */
-}
-
-/* Minimal block for tap/click target with sharp edges and no border */
-.cta-button-logo .cta-chip {
-    background: #101010;
-    color: var(--text-primary);
-    padding: 10px 16px;
-    border-radius: 0;
-    transition: background 160ms ease;
-    display: inline-block;
-    letter-spacing: 0.1em; /* align with logo spacing */
-    text-transform: uppercase; /* align with logo casing */
-    font-weight: 300; /* align with logo weight */
+.footer-description {
     font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+    white-space: nowrap;
 }
 
-.cta-button-logo .cta-chip:hover {
-    background: #151515;
-}
-
-.cta-button-logo:focus-visible .cta-chip {
-    outline: 1px solid rgba(255, 255, 255, 0.25);
-    outline-offset: 2px;
-}
-
-.footer-bottom {
+.footer-brand-section {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    position: relative;
 }
 
-/* Minimal button styling to match site's aesthetic */
-.button {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 12px 18px;
-    border-radius: 6px;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    transition:
-        border-color 0.2s ease,
-        color 0.2s ease,
-        background-color 0.2s ease;
-}
-
-.button:hover {
-    border-color: rgba(255, 255, 255, 0.35);
-    background-color: rgba(255, 255, 255, 0.04);
-}
-
-.button:active {
-    background-color: rgba(255, 255, 255, 0.06);
-}
-
-.button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
-}
-
-.footer-image {
-    display: block;
-    width: 900px;
-    height: auto;
-    image-rendering: auto;
-}
-
-/* Minimalist, sharp, borderless CTA button */
-.cta-button {
-    background: #101010;
-    color: var(--text-primary);
-    border: none;
-    padding: 12px 18px;
-    border-radius: 0;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    transition: background 160ms ease;
-}
-
-.cta-button:hover {
-    background: #151515;
-}
-
-.cta-button:focus-visible {
-    outline: 1px solid rgba(255, 255, 255, 0.2);
-    outline-offset: 2px;
+.footer-brand-text {
+    font-size: clamp(140px, 22vw, 240px);
+    font-family: "Geist Sans", "Inter", system-ui, sans-serif;
+    font-weight: 200;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: #e0e9e5;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .footer-links a {
@@ -334,11 +320,25 @@ footer::before {
     .section-heading {
         font-size: 26px;
     }
-    header,
-    footer {
+    header {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+
+    .footer-top-section,
+    .footer-middle-section {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .footer-email {
+        font-size: 24px;
+    }
+
+    .footer-brand-text {
+        font-size: clamp(80px, 18vw, 120px);
     }
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -351,9 +351,18 @@ footer::before {
 }
 
 @media (max-width: 480px) {
-    .footer-image {
-        width: 540px;
+    .footer-email {
+        font-size: 20px;
     }
+
+    .footer-brand-text {
+        font-size: clamp(60px, 20vw, 90px);
+    }
+
+    .footer-layout {
+        gap: 50px;
+    }
+
     .feature-grid {
         grid-template-columns: 1fr;
         gap: 15px;
