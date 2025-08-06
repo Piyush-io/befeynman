@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Be Feynman | Explain It Until You Own It</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+            :root {
+                --bg-color: #0b0b0b;
+                --text-primary: #ffffff;
+                --text-secondary: #8c8c8c;
+                --subdued-meta-color: rgba(140, 140, 140, 0.62);
+                --accent: #e5e5e5;
+                --max-width: 1120px;
+                --padding-desktop: 100px;
+                --padding-mobile: 40px;
+                --section-y: 80px; /* consistent vertical spacing */
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: var(--bg-color);
+                color: var(--text-primary);
+                font-family: "Inter", "Helvetica Neue", sans-serif;
+                font-weight: 300;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                overflow-x: hidden;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            header,
+            footer {
+                width: 100%;
+                max-width: var(--max-width);
+                padding: 30px var(--padding-mobile);
+                display: flex;
+                justify-content: center; /* center content */
+                align-items: center;
+                font-size: 15px;
+            }
+
+            .logo {
+                font-size: 22px;
+                font-weight: 300;
+                letter-spacing: -0.02em;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            /* Removed the header nav and centered the logo */
+
+            .hero {
+                background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80");
+                background-size: cover;
+                background-position: center 60%; /* shift image downward */
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 180px var(--padding-mobile);
+            }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-color: rgba(11, 11, 11, 0.7);
+                z-index: 1;
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                max-width: 900px;
+            }
+
+            .hero-heading {
+                font-size: 54px;
+                font-weight: 300;
+                line-height: 1.15;
+                margin-bottom: 20px;
+                letter-spacing: -0.02em;
+            }
+
+            .body-copy {
+                max-width: 720px;
+                font-size: 20px;
+                line-height: 1.6;
+                color: var(--text-secondary);
+                margin: 20px auto;
+            }
+
+            .body-copy strong {
+                font-weight: 400;
+                color: var(--text-primary);
+            }
+
+            main {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content-section {
+                padding: var(--section-y) var(--padding-mobile);
+                max-width: var(--max-width);
+                text-align: center;
+            }
+
+            .section-heading {
+                font-size: 34px;
+                font-weight: 300;
+                margin-bottom: 32px;
+                letter-spacing: -0.01em;
+            }
+
+            .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .feature-card {
+                background-color: rgba(255, 255, 255, 0.02);
+                padding: 48px 32px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                min-height: 280px;
+            }
+
+            .feature-card h3 {
+                font-size: 18px;
+                font-weight: 300;
+                margin-bottom: 20px;
+                letter-spacing: -0.01em;
+                color: var(--text-primary);
+            }
+
+            .feature-card p {
+                font-size: 14px;
+                font-weight: 300;
+                color: var(--text-secondary);
+                line-height: 1.5;
+                max-width: 200px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 60px;
+                margin-top: calc(var(--section-y) * 1.5);
+                padding: 120px var(--padding-mobile) 100px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            footer::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1px;
+                height: 80px;
+                background: linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent
+                );
+            }
+
+            .footer-logo {
+                font-size: 16px;
+                font-weight: 300;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: rgba(255, 255, 255, 0.4);
+                margin-bottom: 40px;
+            }
+
+            .footer-bottom {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                position: relative;
+            }
+
+            .footer-image {
+                display: block;
+                width: 900px;
+                height: auto;
+                image-rendering: auto;
+            }
+
+            .footer-links a {
+                color: var(--text-secondary);
+                margin-left: 20px;
+            }
+
+            .footer-links a:hover {
+                color: var(--text-primary);
+                text-decoration: underline;
+            }
+
+            .copyright {
+                font-size: 14px;
+                color: var(--subdued-meta-color);
+                text-align: center;
+            }
+
+            @media (max-width: 768px) {
+                .hero {
+                    padding: 120px var(--padding-mobile);
+                    background-position: center 65%; /* slightly more shift on mobile */
+                }
+                .hero-heading {
+                    font-size: 36px;
+                }
+                .body-copy {
+                    font-size: 18px;
+                }
+                .section-heading {
+                    font-size: 26px;
+                }
+                header,
+                footer {
+                    flex-direction: column;
+                    gap: 20px;
+                    text-align: center;
+                }
+                .feature-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+                .feature-card {
+                    min-height: 240px;
+                    padding: 36px 24px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .footer-image {
+                    width: 540px;
+                }
+                .feature-grid {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+                .feature-card {
+                    min-height: 200px;
+                    padding: 32px 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="footer-logo">BE FEYNMAN</div>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-heading">Explain It Until You Own It</h1>
+                    <p class="body-copy" style="color: #ccc">
+                        Pick any topic. Teach it to an AI that asks perfect
+                        questions. Walk away actually understanding it.
+                    </p>
+                </div>
+            </section>
+
+            <main>
+                <section class="content-section">
+                    <p class="body-copy">
+                        You are <strong>Feynman</strong>—the master of making
+                        complex ideas simple. You pick a topic and explain it to
+                        an AI student. The AI asks questions that reveal your
+                        gaps. You fill those gaps. By the end, you've taught the
+                        AI and, more importantly, yourself.
+                    </p>
+                    <p class="body-copy">
+                        No scheduling. No performance anxiety. Just you, the
+                        topic, and a conversation that ends when you can explain
+                        it without hesitation.
+                    </p>
+                </section>
+
+                <section class="content-section" id="method">
+                    <h2 class="section-heading">The Feynman Method</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h3>1. Pick Your Topic</h3>
+                            <p>
+                                Anything from "why is the sky blue" to "derive
+                                the Black-Scholes equation."
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>2. Start Explaining</h3>
+                            <p>
+                                Talk, type, or sketch. The AI listens and asks
+                                clarifying questions.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>3. Get Challenged</h3>
+                            <p>
+                                The AI probes gaps in your understanding and
+                                helps you dive deeper.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h3>4. Master It</h3>
+                            <p>
+                                Once you can explain it clearly, you've truly
+                                learned it.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-heading">What Makes This Different</h2>
+                    <p class="body-copy">
+                        Unlike passively consuming content, this method forces
+                        you to articulate and defend your ideas. You're actively
+                        building knowledge like Feynman himself did.
+                    </p>
+                    <p class="body-copy">
+                        Each session ends with a summary—your words distilled
+                        into crisp review notes, searchable and yours forever.
+                    </p>
+                </section>
+            </main>
+
+            <footer>
+                <div class="footer-logo">BE FEYNMAN</div>
+                <div class="footer-bottom">
+                    <div class="footer-image-glow"></div>
+                    <img
+                        src="https://sksdwace8p.ufs.sh/f/T6P9IsYXc14jlWF7FX4dufF6yNdk3abHoRjDV2ITiECweYPX"
+                        alt="The Feynman Method"
+                        class="footer-image"
+                    />
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
