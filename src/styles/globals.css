@@ -280,7 +280,7 @@ footer {
 }
 
 .footer-brand-text {
-    font-size: clamp(140px, 22vw, 240px);
+    font-size: clamp(25px, 15vw, 240px);
     font-family: "Geist Sans", "Inter", system-ui, sans-serif;
     font-weight: 200;
     line-height: 0.85;
@@ -288,6 +288,7 @@ footer {
     color: #e0e9e5;
     text-transform: uppercase;
     white-space: nowrap;
+    text-align: center;
 }
 
 .footer-links a {
@@ -337,9 +338,6 @@ footer {
         font-size: 24px;
     }
 
-    .footer-brand-text {
-        font-size: clamp(80px, 18vw, 120px);
-    }
     .feature-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -353,10 +351,6 @@ footer {
 @media (max-width: 480px) {
     .footer-email {
         font-size: 20px;
-    }
-
-    .footer-brand-text {
-        font-size: clamp(60px, 20vw, 90px);
     }
 
     .footer-layout {
